@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Training and Placement Center Form</title>
+    <style>
+        :root {
+            --primary-color: #007bff;
+            --secondary-color: #0056b3;
+            --background-color: #f4f4f4;
+            --form-background: #ffffff;
+            --text-color: #333333;
+            --border-color: #cccccc;
+            --button-hover-color: #0056b3;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            margin: 0;
+        }
+
+        h2 {
+            color: var(--primary-color);
+            text-align: left;
+            margin-bottom: 20px;
+        }
+
+        form {
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: var(--form-background);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .form-section {
+            width: 100%;
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            width: 100%;
+            margin-bottom: 15px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            padding: 10px;
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            font-size: 1em;
+        }
+
+        .checkbox-group,
+        .flex-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 5px;
+        }
+
+        .checkbox-group label,
+        .flex-group label {
+            margin-right: 5px;
+            font-weight: normal;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        table, th, td {
+            border: 1px solid var(--border-color);
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: center;
+        }
+
+        button {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: var(--secondary-color);
+        }
+
+        .note {
+            font-size: 0.9em;
+            color: #555555;
+            margin-top: 10px;
+        }
+
+        /* Responsive Layout */
+
+        /* Desktop Layout (three columns) */
+        @media (min-width: 992px) {
+            .form-group.half-width {
+                width: 30%;
+                margin-right: 5%;
+            }
+
+            .form-group.full-width {
+                width: 100%;
+            }
+
+            .form-group.half-width:nth-child(3n) {
+                margin-right: 0;
+            }
+        }
+
+        /* Tablet Layout (two columns) */
+        @media (min-width: 768px) and (max-width: 991px) {
+            .form-group.half-width {
+                width: 48%;
+                margin-right: 4%;
+            }
+
+            .form-group.half-width:nth-child(2n) {
+                margin-right: 0;
+            }
+        }
+
+        /* Mobile Layout (single column) */
+        @media (max-width: 767px) {
+            .form-group.half-width {
+                width: 100%;
+                margin-right: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Training and Placement Center Form</h2>
+
+    <form id="placementForm">
+        <!-- Company Details Section -->
+        <div class="form-section">
+            <h2>Company Details</h2>
+            <div class="form-group half-width">
+                <label for="companyName">Name of the Company:</label>
+                <input type="text" id="companyName" name="companyName" placeholder="Company Name" required>
+            </div>
+            <div class="form-group half-width">
+                <label for="website">Website:</label>
+                <input type="url" id="website" name="website" placeholder="URL" required>
+            </div>
+            
+            <!-- Industry Sector -->
+            <div class="form-group half-width">
+                <label for="industrySector">Industry Sector:</label>
+                <select id="industrySector" name="industrySector" required>
+                    <option value="" disabled selected>Select Sector</option>
+                    <option value="core">Core (Technical)</option>
+                    <option value="consulting">Consulting</option>
+                    <option value="management">Management</option>
+                    <option value="finance">Finance</option>
+                    <option value="PSU">PSU</option>
+                    <option value="FMCG">FMCG</option>
+                    <option value="IT">IT</option>
+                    <option value="Analytics">Analytics</option>
+                    <option value="Teaching & Research">Teaching & Research</option>
+                    <option value="others">Others</option>
+                </select>
+                <input type="text" id="industryOther" class="hidden" placeholder="Please specify">
+            </div>
+            <div class="form-group half-width hidden" id="industryOtherGroup">
+                <label for="industryOther">Please specify other industry:</label>
+                <input type="text" id="industryOther" name="industryOther" placeholder="Specify other industry">
+            </div>
+            
+            <!-- Company Type -->
+            <div class="form-group half-width">
+                <label for="companyType">Company Type:</label>
+                <select id="companyType" name="companyType" required>
+                    <option value="" disabled selected>Select Type</option>
+                    <option value="private">Private Sector</option>
+                    <option value="startup">Startup</option>
+                    <option value="government">Government</option>
+                    <option value="public">Public Sector</option>
+                    <option value="MNC_india">MNC (India Origin)</option>
+                    <option value="MNC_foreign">MNC (Foreign Origin)</option>
+                    <option value="others">Others</option>
+                </select>
+                <input type="text" id="companyOther" class="hidden" placeholder="Please specify">
+            </div>
+            <div class="form-group half-width hidden" id="companyOtherGroup">
+                <label for="companyOther">Please specify other company type:</label>
+                <input type="text" id="companyOther" name="companyOther" placeholder="Specify other company type">
+            </div>
+            
+            <div class="form-group full-width">
+                <label for="companyWriteup">Brief write-up on the Company (50-75 words):</label>
+                <textarea id="companyWriteup" name="companyWriteup" rows="3" placeholder="Write a brief description of the company" required></textarea>
+            </div>
+
+            <div class="form-group half-width">
+                <label for="employeeStrength">Employee Strength:</label>
+                <input type="number" id="employeeStrength" name="employeeStrength" min="1" placeholder="Number of Employees" required>
+            </div>
+            <div class="form-group half-width">
+                <label for="recruitmentDriveDate">Date of Recruitment Drive:</label>
+                <input type="date" id="recruitmentDriveDate" name="recruitmentDriveDate" required>
+            </div>
+            <div class="form-group half-width">
+                <label for="timeOfVisit">Time of Visit:</label>
+                <input type="time" id="timeOfVisit" name="timeOfVisit" required>
+            </div>
+            <div class="form-group half-width">
+                <label for="passingOutBatch">Passing Out Batch:</label>
+                <input type="text" id="passingOutBatch" name="passingOutBatch" placeholder="e.g., 2024" required>
+            </div>
+        </div>
+
+        <!-- Contact Details Section -->
+        <div class="form-section">
+            <h2>Contact Details</h2>
+            <div class="form-group half-width">
+                <label for="contactPerson">Contact Person:</label>
+                <input type="text" id="contactPerson" name="contactPerson" placeholder="Name of Contact Person" required>
+            </div>
+            <div class="form-group half-width">
+                <label for="designationContact">Designation:</label>
+                <input type="text" id="designationContact" name="designationContact" placeholder="Designation" required>
+            </div>
+            <div class="form-group full-width">
+                <label for="address">Address:</label>
+                <textarea id="address" name="address" rows="2" placeholder="Company Address" required></textarea>
+            </div>
+            <div class="form-group half-width">
+                <label for="telephone">Telephone:</label>
+                <input type="tel" id="telephone" name="telephone" placeholder="Telephone Number" pattern="[0-9]{10}" required>
+            </div>
+            <div class="form-group half-width">
+                <label for="mobile">Mobile:</label>
+                <input type="tel" id="mobile" name="mobile" placeholder="Mobile Number" pattern="[0-9]{10}" required>
+            </div>
+            <div class="form-group half-width">
+                <label for="emailContact">Email:</label>
+                <input type="email" id="emailContact" name="emailContact" placeholder="Email Address" required>
+            </div>
+        </div>
+
+        <!-- Job Details Section -->
+        <div class="form-section">
+            <h2>Job Details</h2>
+            <div class="form-group half-width">
+                <label for="jobDesignationChoice">Job Designation Offered:</label>
+                <select id="jobDesignationChoice" name="jobDesignationChoice" required>
+                    <option value="" disabled selected>Select Option</option>
+                    <option value="manual">Enter Details</option>
+                    <option value="pdfUpload">Upload PDF</option>
+                </select>
+                <input type="pdfUpload" id="companyOther" class="hidden" placeholder="Please specify">
+            </div>
+            <div class="form-group half-width hidden" id="designationFields">
+                <label for="designationPdf">Upload Job Designation PDF:</label>
+                <input type="file" id="designationPdf" name="designationPdf" accept="application/pdf">
+            </div>
+            <div class="form-group half-width hidden" id="designationInputGroup">
+                <label for="numOffers">Probable No. of Offers to be Made:</label>
+                <input type="number" id="numOffers" name="numOffers" min="1" placeholder="Number of Offers" required>
+            </div>
+            <div class="form-group half-width hidden" id="jobDescriptionGroup">
+                <label for="jobDescription">Job Description:</label>
+                <textarea id="jobDescription" name="jobDescription" rows="3" placeholder="Describe the job role" required></textarea>
+            </div>
+            <div class="form-group half-width hidden" id="placePostingGroup">
+                <label for="placePosting">Place of Posting:</label>
+                <input type="text" id="placePosting" name="placePosting" placeholder="Location" required>
+            </div>
+            
+            <!-- Bond Details -->
+            <div class="form-group full-width">
+                <label>Details of Bond/Service Contract, if any:</label>
+                <div class="checkbox-group">
+                    <input type="radio" id="bondYes" name="bond" value="Yes" required>
+                    <label for="bondYes">Yes</label>
+                    <input type="radio" id="bondNo" name="bond" value="No" required>
+                    <label for="bondNo">No</label>
+                </div>
+            </div>
+            <div class="form-group half-width hidden" id="contractLengthGroup">
+                <label for="contractLength">If Yes, how long?</label>
+                <input type="text" id="contractLength" name="contractLength" placeholder="Duration (e.g., 2 years)">
+            </div>
+            <div class="form-group half-width hidden" id="compensationGroup">
+                <label for="compensation">Compensation if Contract is Breached:</label>
+                <input type="text" id="compensation" name="compensation" placeholder="Enter compensation details">
+            </div>
+            <div class="form-group half-width hidden" id="medicalGroup">
+                <label for="medical">Medical Requirements:</label>
+                <input type="text" id="medical" name="medical" placeholder="Specify any medical requirements">
+            </div>
+
+            <!-- Diversity Hiring -->
+            <div class="form-group full-width">
+                <label>Are you hiring for Diversity or Regular hiring?</label>
+                <div class="checkbox-group">
+                    <input type="radio" id="genderMale" name="gender" value="Male" required>
+                    <label for="genderMale">Only Male</label>
+                    <input type="radio" id="genderFemale" name="gender" value="Female" required>
+                    <label for="genderFemale">Only Female</label>
+                    <input type="radio" id="genderBoth" name="gender" value="Both" required>
+                    <label for="genderBoth">Both</label>
+                </div>
+            </div>
+        </div>
+
+        <!-- Salary Details Section -->
+        <div class="form-section">
+            <h2>Salary Details</h2>
+            <p>(in lakhs per annum)</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Program/Course</th>
+                        <th>Basic</th>
+                        <th>HRA</th>
+                        <th>Gross</th>
+                        <th>Take-Home</th>
+                        <th>CTC</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- MBA Row -->
+                    <tr>
+                        <td>MBA</td>
+                        <td><input type="text" name="mbaBasic" required></td>
+                        <td><input type="text" name="mbaHRA" required></td>
+                        <td><input type="text" name="mbaGross" required></td>
+                        <td><input type="text" name="mbaTakeHome" required></td>
+                        <td><input type="text" name="mbaCTC" required></td>
+                    </tr>
+                    <!-- B.Com Row -->
+                    <tr>
+                        <td>B.Com</td>
+                        <td><input type="text" name="bcomBasic" required></td>
+                        <td><input type="text" name="bcomHRA" required></td>
+                        <td><input type="text" name="bcomGross" required></td>
+                        <td><input type="text" name="bcomTakeHome" required></td>
+                        <td><input type="text" name="bcomCTC" required></td>
+                    </tr>
+                    <!-- BBA Row -->
+                    <tr>
+                        <td>BBA</td>
+                        <td><input type="text" name="bbaBasic" required></td>
+                        <td><input type="text" name="bbaHRA" required></td>
+                        <td><input type="text" name="bbaGross" required></td>
+                        <td><input type="text" name="bbaTakeHome" required></td>
+                        <td><input type="text" name="bbaCTC" required></td>
+                    </tr>
+                    <!-- BCA Row -->
+                    <tr>
+                        <td>BCA</td>
+                        <td><input type="text" name="bcaBasic" required></td>
+                        <td><input type="text" name="bcaHRA" required></td>
+                        <td><input type="text" name="bcaGross" required></td>
+                        <td><input type="text" name="bcaTakeHome" required></td>
+                        <td><input type="text" name="bcaCTC" required></td>
+                    </tr>
+                    <!-- BSc Row -->
+                    <tr>
+                        <td>BSc</td>
+                        <td><input type="text" name="bscBasic" required></td>
+                        <td><input type="text" name="bscHRA" required></td>
+                        <td><input type="text" name="bscGross" required></td>
+                        <td><input type="text" name="bscTakeHome" required></td>
+                        <td><input type="text" name="bscCTC" required></td>
+                    </tr>
+                    <!-- BA Row -->
+                    <tr>
+                        <td>BA</td>
+                        <td><input type="text" name="baBasic" required></td>
+                        <td><input type="text" name="baHRA" required></td>
+                        <td><input type="text" name="baGross" required></td>
+                        <td><input type="text" name="baTakeHome" required></td>
+                        <td><input type="text" name="baCTC" required></td>
+                    </tr>
+                    <!-- B.Com TTM Row -->
+                    <tr>
+                        <td>B.Com TTM</td>
+                        <td><input type="text" name="bcomTTMBasic" required></td>
+                        <td><input type="text" name="bcomTTMHRA" required></td>
+                        <td><input type="text" name="bcomTTMGross" required></td>
+                        <td><input type="text" name="bcomTTMTakeHome" required></td>
+                        <td><input type="text" name="bcomTTMCTC" required></td>
+                    </tr>
+                    <!-- MSW Row -->
+                    <tr>
+                        <td>MSW</td>
+                        <td><input type="text" name="mswBasic" required></td>
+                        <td><input type="text" name="mswHRA" required></td>
+                        <td><input type="text" name="mswGross" required></td>
+                        <td><input type="text" name="mswTakeHome" required></td>
+                        <td><input type="text" name="mswCTC" required></td>
+                    </tr>
+                    <!-- MSc Psychology Row -->
+                    <tr>
+                        <td>MSc Psychology</td>
+                        <td><input type="text" name="mscPsychologyBasic" required></td>
+                        <td><input type="text" name="mscPsychologyHRA" required></td>
+                        <td><input type="text" name="mscPsychologyGross" required></td>
+                        <td><input type="text" name="mscPsychologyTakeHome" required></td>
+                        <td><input type="text" name="mscPsychologyCTC" required></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Eligibility Section -->
+        <div class="form-section">
+            <h2>Eligibility for Participating in the Selection Process</h2>
+            <div class="form-group half-width">
+                <label for="CGPA">Specify the CGPA criteria:</label>
+                <small>(Please specify CGPA out of 10)</small>
+                <input type="text" id="CGPA" name="CGPA" placeholder="e.g., 7.5" required>
+            </div>
+            <div class="form-group full-width">
+                <label for="backlogs">Do you consider students with current active backlogs/failures?</label>
+                <div class="checkbox-group">
+                    <input type="radio" id="backlogsYes" name="backlogs" value="Yes" required>
+                    <label for="backlogsYes">Yes</label>
+                    <input type="radio" id="backlogsNo" name="backlogs" value="No" required>
+                    <label for="backlogsNo">No</label>
+                </div>
+            </div>
+        </div>
+
+        <!-- Selection Process Section -->
+        <div class="form-section">
+            <h2>Selection Process</h2>
+            <div class="form-group full-width">
+                <label>Database to be sent:</label>
+                <div class="checkbox-group">
+                    <input type="radio" id="databaseOnline" name="database" value="Online" required>
+                    <label for="databaseOnline">Online/Virtual</label>
+                    <input type="radio" id="databaseCampus" name="database" value="On Campus" required>
+                    <label for="databaseCampus">On Campus</label>
+                </div>
+            </div>
+            <div class="form-group half-width hidden" id="databaseEmailGroup">
+                <label for="databaseEmail">If online, the email ID to which the database should be sent:</label>
+                <input type="email" id="databaseEmail" name="databaseEmail" placeholder="Email Address">
+            </div>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Test Type</th>
+                        <th>Yes</th>
+                        <th>No</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Online Test</td>
+                        <td><input type="radio" id="onlineTestYes" name="onlineTest" value="Yes" required></td>
+                        <td><input type="radio" id="onlineTestNo" name="onlineTest" value="No" required></td>
+                    </tr>
+                    <tr>
+                        <td>Aptitude Test</td>
+                        <td><input type="radio" id="aptitudeTestYes" name="aptitudeTest" value="Yes" required></td>
+                        <td><input type="radio" id="aptitudeTestNo" name="aptitudeTest" value="No" required></td>
+                    </tr>
+                    <tr>
+                        <td>Technical Test</td>
+                        <td><input type="radio" id="technicalTestYes" name="technicalTest" value="Yes" required></td>
+                        <td><input type="radio" id="technicalTestNo" name="technicalTest" value="No" required></td>
+                    </tr>
+                    <tr>
+                        <td>Group Discussion</td>
+                        <td><input type="radio" id="groupDiscussionYes" name="groupDiscussion" value="Yes" required></td>
+                        <td><input type="radio" id="groupDiscussionNo" name="groupDiscussion" value="No" required></td>
+                    </tr>
+                    <tr>
+                        <td>Technical Interview</td>
+                        <td><input type="radio" id="technicalInterviewYes" name="technicalInterview" value="Yes" required></td>
+                        <td><input type="radio" id="technicalInterviewNo" name="technicalInterview" value="No" required></td>
+                    </tr>
+                    <tr>
+                        <td>HR Interview</td>
+                        <td><input type="radio" id="hrInterviewYes" name="hrInterview" value="Yes" required></td>
+                        <td><input type="radio" id="hrInterviewNo" name="hrInterview" value="No" required></td>
+                    </tr>
+                    <tr>
+                        <td>Personal Interview</td>
+                        <td><input type="radio" id="personalInterviewYes" name="personalInterview" value="Yes" required></td>
+                        <td><input type="radio" id="personalInterviewNo" name="personalInterview" value="No" required></td>
+                    </tr>
+                </tbody>
+            </table><br>
+
+            <div class="form-group full-width">
+                <label for="skillset">If yes, specify topics/skill sets that you would like to test for:</label>
+                <input type="text" id="skillset" name="skillset" placeholder="e.g., JavaScript, Problem-Solving">
+            </div>
+            <div class="form-group half-width">
+                <label for="rounds">Total number of rounds:</label>
+                <input type="number" id="rounds" name="rounds" min="1" placeholder="Number of Rounds" required>
+            </div>
+
+            <!-- Internship Requirement -->
+    <div class="form-section">
+        <h3>Internship Requirement</h3>
+        <div class="form-group half-width">
+            <label for="internshipTitle">Internship Title:</label>
+            <input type="text" id="internshipTitle" name="internshipTitle" required>
+        </div>
+        <div class="form-group half-width">
+            <label for="internshipDuration">Duration (in months):</label>
+            <input type="number" id="internshipDuration" name="internshipDuration" min="1" required>
+        </div>
+        <div class="form-group half-width">
+            <label for="internshipStipend">Stipend:</label>
+            <input type="text" id="internshipStipend" name="internshipStipend">
+        </div>
+        <div class="form-group full-width">
+            <label for="internshipDescription">Description:</label>
+            <textarea id="internshipDescription" name="internshipDescription" rows="4" required></textarea>
+        </div>
+    </div>
+
+    <!-- Job Requirement -->
+    <div class="form-section">
+        <h3>Job Requirement</h3>
+        <div class="form-group half-width">
+            <label for="jobTitle">Job Title:</label>
+            <input type="text" id="jobTitle" name="jobTitle" required>
+        </div>
+        <div class="form-group half-width">
+            <label for="jobType">Job Type:</label>
+            <select id="jobType" name="jobType" required>
+                <option value="">Select...</option>
+                <option value="Full-time">Full-time</option>
+                <option value="Part-time">Part-time</option>
+                <option value="Internship">Internship</option>
+            </select>
+        </div>
+        <div class="form-group half-width">
+            <label for="jobLocation">Location:</label>
+            <input type="text" id="jobLocation" name="jobLocation" required>
+        </div>
+        <div class="form-group full-width">
+            <label for="jobDescription">Description:</label>
+            <textarea id="jobDescription" name="jobDescription" rows="4" required></textarea>
+        </div>
+    </div>
+
+    <!-- Additional Notes -->
+    <div class="form-section">
+        <h3>Additional Notes</h3>
+        <div class="form-group full-width">
+            <label for="additionalNotes">Please provide any additional information or requests:</label>
+            <textarea id="additionalNotes" name="additionalNotes" rows="4"></textarea>
+        </div>
+    </div>
+
+    <!-- Submit Button -->
+    <div class="form-section">
+        <button type="submit" id="submitButton">Submit</button>
+        <div class="note">* All fields marked with * are required.</div>
+    </div>
+</form>
+
+<script>
+
+    // Show/Hide industry other input field
+    document.getElementById('industrySector').addEventListener('change', function () {
+        document.getElementById('industryOther').style.display = this.value === 'others' ? 'block' : 'none';
+    });
+
+    // Show/Hide company type other input field
+    document.getElementById('companyType').addEventListener('change', function () {
+        document.getElementById('companyOther').style.display = this.value === 'others' ? 'block' : 'none';
+    });
+
+    // JavaScript for dynamic field display
+    document.addEventListener('DOMContentLoaded', function () {
+        const internshipTitle = document.getElementById('internshipTitle');
+        const internshipDescription = document.getElementById('internshipDescription');
+        const jobTitle = document.getElementById('jobTitle');
+        const jobDescription = document.getElementById('jobDescription');
+
+        // Example functionality to toggle visibility of fields (can be customized)
+        internshipTitle.addEventListener('input', function () {
+            if (internshipTitle.value) {
+                internshipDescription.classList.remove('hidden');
+            } else {
+                internshipDescription.classList.add('hidden');
+            }
+        });
+
+        jobTitle.addEventListener('input', function () {
+            if (jobTitle.value) {
+                jobDescription.classList.remove('hidden');
+            } else {
+                jobDescription.classList.add('hidden');
+            }
+        });
+
+        // Form submission handling
+        document.querySelector('form').addEventListener('submit', function (event) {
+            event.preventDefault(); // Prevent actual form submission for demo
+            alert('Form submitted successfully!');
+        });
+    });
+</script>
+</body>
+</html>
+
