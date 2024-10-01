@@ -1,167 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Training and Placement Center Form</title>
-    <style>
-        :root {
-            --primary-color: #007bff;
-            --secondary-color: #0056b3;
-            --background-color: #f4f4f4;
-            --form-background: #ffffff;
-            --text-color: #333333;
-            --border-color: #cccccc;
-            --button-hover-color: #0056b3;
-        }
-
-        * {
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: Arial, sans-serif;
-            padding: 20px;
-            background-color: var(--background-color);
-            color: var(--text-color);
-            margin: 0;
-        }
-
-        h2 {
-            color: var(--primary-color);
-            text-align: left;
-            margin-bottom: 20px;
-        }
-
-        form {
-            max-width: 1200px;
-            margin: 0 auto;
-            background-color: var(--form-background);
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-            display: flex;
-            flex-wrap: wrap;
-        }
-
-        .form-section {
-            width: 100%;
-            margin-bottom: 30px;
-        }
-
-        .form-group {
-            width: 100%;
-            margin-bottom: 15px;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .form-group label {
-            margin-bottom: 5px;
-            font-weight: bold;
-        }
-
-        .form-group input,
-        .form-group select,
-        .form-group textarea {
-            padding: 10px;
-            border: 1px solid var(--border-color);
-            border-radius: 5px;
-            font-size: 1em;
-        }
-
-        .checkbox-group,
-        .flex-group {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-top: 5px;
-        }
-
-        .checkbox-group label,
-        .flex-group label {
-            margin-right: 5px;
-            font-weight: normal;
-        }
-
-        .hidden {
-            display: none;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 10px;
-        }
-
-        table, th, td {
-            border: 1px solid var(--border-color);
-        }
-
-        th, td {
-            padding: 10px;
-            text-align: center;
-        }
-
-        button {
-            background-color: var(--primary-color);
-            color: white;
-            padding: 12px 25px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 1em;
-            transition: background-color 0.3s ease;
-        }
-
-        button:hover {
-            background-color: var(--secondary-color);
-        }
-
-        .note {
-            font-size: 0.9em;
-            color: #555555;
-            margin-top: 10px;
-        }
-
-        /* Responsive Layout */
-
-        /* Desktop Layout (three columns) */
-        @media (min-width: 992px) {
-            .form-group.half-width {
-                width: 30%;
-                margin-right: 5%;
-            }
-
-            .form-group.full-width {
-                width: 100%;
-            }
-
-            .form-group.half-width:nth-child(3n) {
-                margin-right: 0;
-            }
-        }
-
-        /* Tablet Layout (two columns) */
-        @media (min-width: 768px) and (max-width: 991px) {
-            .form-group.half-width {
-                width: 48%;
-                margin-right: 4%;
-            }
-
-            .form-group.half-width:nth-child(2n) {
-                margin-right: 0;
-            }
-        }
-
-        /* Mobile Layout (single column) */
-        @media (max-width: 767px) {
-            .form-group.half-width {
-                width: 100%;
-                margin-right: 0;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Training and Placement Center Form</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -223,7 +66,7 @@
                 <input type="text" id="companyOther" name="companyOther" placeholder="Specify other company type">
             </div>
             
-            <div class="form-group full-width">
+            <div class="form-group">
                 <label for="companyWriteup">Brief write-up on the Company (50-75 words):</label>
                 <textarea id="companyWriteup" name="companyWriteup" rows="3" placeholder="Write a brief description of the company" required></textarea>
             </div>
@@ -242,7 +85,7 @@
             </div>
             <div class="form-group half-width">
                 <label for="passingOutBatch">Passing Out Batch:</label>
-                <input type="text" id="passingOutBatch" name="passingOutBatch" placeholder="e.g., 2024" required>
+                <input type="text" id="passingOutBatch" name="passingOutBatch" placeholder="e.g., 2025" required>
             </div>
         </div>
 
@@ -279,32 +122,33 @@
         <div class="form-section">
             <h2>Job Details</h2>
             <div class="form-group half-width">
-                <label for="jobDesignationChoice">Job Designation Offered:</label>
-                <select id="jobDesignationChoice" name="jobDesignationChoice" required>
+                <label for="designationChoice">Job Designation Offered:</label>
+                <select id="designationChoice" name="designationChoice" required>
                     <option value="" disabled selected>Select Option</option>
                     <option value="manual">Enter Details</option>
                     <option value="pdfUpload">Upload PDF</option>
                 </select>
-                <input type="pdfUpload" id="companyOther" class="hidden" placeholder="Please specify">
-            </div>
-            <div class="form-group half-width hidden" id="designationFields">
-                <label for="designationPdf">Upload Job Designation PDF:</label>
-                <input type="file" id="designationPdf" name="designationPdf" accept="application/pdf">
-            </div>
-            <div class="form-group half-width hidden" id="designationInputGroup">
-                <label for="numOffers">Probable No. of Offers to be Made:</label>
-                <input type="number" id="numOffers" name="numOffers" min="1" placeholder="Number of Offers" required>
-            </div>
-            <div class="form-group half-width hidden" id="jobDescriptionGroup">
-                <label for="jobDescription">Job Description:</label>
-                <textarea id="jobDescription" name="jobDescription" rows="3" placeholder="Describe the job role" required></textarea>
-            </div>
-            <div class="form-group half-width hidden" id="placePostingGroup">
-                <label for="placePosting">Place of Posting:</label>
-                <input type="text" id="placePosting" name="placePosting" placeholder="Location" required>
             </div>
             
-            <!-- Bond Details -->
+            <!-- Fields for manual entry -->
+                <div id="designationFields" class="hidden">
+                <div class="form-group half-width hidden" id="designationInputGroup">
+                <div class="form-group half-width">
+                    <label for="numOffers">Probable No. of Offers to be Made:</label>
+                    <input type="number" id="numOffers" name="numOffers" min="1" placeholder="Number of Offers" required>
+                </div></div>
+                <div class="form-group half-width hidden" id="jobDescriptionGroup">
+                    <div class="form-group half-width">  
+                    <label for="jobDescription">Job Description:</label>
+                    <textarea id="jobDescription" name="jobDescription" rows="3" placeholder="Describe the job role" required></textarea>
+                </div></div>
+                <div class="form-group half-width hidden" id="placePostingGroup">
+                    <div class="form-group half-width">
+                    <label for="placePosting">Place of Posting:</label>
+                    <input type="text" id="placePosting" name="placePosting" placeholder="Location" required>
+                </div></div>
+
+                <!-- Bond Details -->
             <div class="form-group full-width">
                 <label>Details of Bond/Service Contract, if any:</label>
                 <div class="checkbox-group">
@@ -314,20 +158,19 @@
                     <label for="bondNo">No</label>
                 </div>
             </div>
-            <div class="form-group half-width hidden" id="contractLengthGroup">
-                <label for="contractLength">If Yes, how long?</label>
-                <input type="text" id="contractLength" name="contractLength" placeholder="Duration (e.g., 2 years)">
-            </div>
-            <div class="form-group half-width hidden" id="compensationGroup">
-                <label for="compensation">Compensation if Contract is Breached:</label>
-                <input type="text" id="compensation" name="compensation" placeholder="Enter compensation details">
-            </div>
-            <div class="form-group half-width hidden" id="medicalGroup">
-                <label for="medical">Medical Requirements:</label>
-                <input type="text" id="medical" name="medical" placeholder="Specify any medical requirements">
-            </div>
-
-            <!-- Diversity Hiring -->
+                <div class="form-group half-width" id="contractLengthGroup">
+                    <label for="contractLength">If Yes, how long?</label>
+                    <input type="text" id="contractLength" name="contractLength" placeholder="Duration (e.g., 2 years)">
+                </div>
+                <div class="form-group half-width" id="compensationGroup">
+                    <label for="compensation">If, the candidate breaches the contract, the compensation he/she will have to pay:</label>
+                    <input type="text" id="compensation" name="compensation" placeholder="Enter compensation details">
+                </div>
+                <div class="form-group half-width" id="medicalGroup">
+                    <label for="medical">Medical Requirements:</label>
+                    <input type="text" id="medical" name="medical" placeholder="Specify any medical requirements">
+                </div>
+                <!-- Diversity Hiring -->
             <div class="form-group full-width">
                 <label>Are you hiring for Diversity or Regular hiring?</label>
                 <div class="checkbox-group">
@@ -339,11 +182,19 @@
                     <label for="genderBoth">Both</label>
                 </div>
             </div>
+            </div>
+            
+            <!-- Field for PDF upload -->
+            <div class="form-group hidden" id="pdfUploadGroup">
+                <label for="designationPdf">Upload Job Designation PDF:</label>
+                <input type="file" id="designationPdf" name="designationPdf" accept="application/pdf" />
+            </div>  
         </div>
 
         <!-- Salary Details Section -->
         <div class="form-section">
-            <h2>Salary Details</h2>
+            <div class="form-table">
+                <h2>Salary Details</h2>
             <p>(in lakhs per annum)</p>
             <table>
                 <thead>
@@ -440,6 +291,7 @@
                     </tr>
                 </tbody>
             </table>
+            </div>
         </div>
 
         <!-- Eligibility Section -->
@@ -595,51 +447,8 @@
         <button type="submit" id="submitButton">Submit</button>
         <div class="note">* All fields marked with * are required.</div>
     </div>
-</form>
-
-<script>
-
-    // Show/Hide industry other input field
-    document.getElementById('industrySector').addEventListener('change', function () {
-        document.getElementById('industryOther').style.display = this.value === 'others' ? 'block' : 'none';
-    });
-
-    // Show/Hide company type other input field
-    document.getElementById('companyType').addEventListener('change', function () {
-        document.getElementById('companyOther').style.display = this.value === 'others' ? 'block' : 'none';
-    });
-
-    // JavaScript for dynamic field display
-    document.addEventListener('DOMContentLoaded', function () {
-        const internshipTitle = document.getElementById('internshipTitle');
-        const internshipDescription = document.getElementById('internshipDescription');
-        const jobTitle = document.getElementById('jobTitle');
-        const jobDescription = document.getElementById('jobDescription');
-
-        // Example functionality to toggle visibility of fields (can be customized)
-        internshipTitle.addEventListener('input', function () {
-            if (internshipTitle.value) {
-                internshipDescription.classList.remove('hidden');
-            } else {
-                internshipDescription.classList.add('hidden');
-            }
-        });
-
-        jobTitle.addEventListener('input', function () {
-            if (jobTitle.value) {
-                jobDescription.classList.remove('hidden');
-            } else {
-                jobDescription.classList.add('hidden');
-            }
-        });
-
-        // Form submission handling
-        document.querySelector('form').addEventListener('submit', function (event) {
-            event.preventDefault(); // Prevent actual form submission for demo
-            alert('Form submitted successfully!');
-        });
-    });
-</script>
+  </form>
+  </div>
+  <script src="style.js"></script>
 </body>
 </html>
-

@@ -1,121 +1,272 @@
 :root {
   --primary-color: #007bff;
   --secondary-color: #0056b3;
+  --background-color: #f4f4f4;
+  --form-background: #ffffff;
+  --text-color: #333333;
+  --border-color: #cccccc;
+  --button-hover-color: #0056b3;
 }
+
 * {
   box-sizing: border-box;
 }
+
 body {
   font-family: Arial, sans-serif;
   padding: 20px;
-  background-color: #f4f4f4;
-  color: #333;
+  background-color: var(--background-color);
+  color: var(--text-color);
   margin: 0;
 }
+
+h2 {
+  color: var(--primary-color);
+  text-align: left;
+  margin-bottom: 20px;
+}
+
 form {
-  max-width: 100%;
+  max-width: 1200px;
   margin: 0 auto;
-  display: flex;
-  flex-wrap: wrap;
-  background-color: white;
+  background-color: var(--form-background);
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  display: flex;
+  flex: 1 1 30%;
+  flex-wrap: wrap;
+}
+
+.form-section {
+  width: 100%;
+  margin-bottom: 30px;
+  
+}
+.form-group.half-width {
+  width: 33%;
+  flex: 1 1 30%;
 }
 .form-group {
   width: 100%;
   margin-bottom: 15px;
-}
-.form-group label {
-  display: block;
-  margin-bottom: 5px;
-}
-.form-group select, .form-group input, .form-group textarea {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-.checkbox-group {
   display: flex;
-  align-items: center;
-  gap: auto; /* Adjusts the space between elements */
+  flex-direction: column;
 }
 
-.checkbox-group label {
-  margin-right: 5px;
+.form-group label {
+  margin-bottom: 5px;
+  font-weight: bold;
 }
-.flex-container {
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  padding: 10px;
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
+  font-size: 1em;
 }
+
+.checkbox-group,
 .flex-group {
   display: flex;
   align-items: center;
-  gap: 15px;
-  margin-bottom: 10px;
+  gap: 10px;
+  margin-top: 5px;
 }
 
-.note {
-  font-size: 0.9em;
-  color: #555;
+.checkbox-group label,
+.flex-group label {
+  margin-right: 5px;
+  font-weight: normal;
 }
 
 .hidden {
   display: none;
 }
 
-table {
+/* Basic table styling */
+.form-table table {
   width: 100%;
   border-collapse: collapse;
+  table-layout: auto;
+  margin-bottom: 20px;
 }
-table, th, td {
-  border: 1px solid #ccc;
-}
-th, td {
+
+.form-table th, .form-table td {
   padding: 10px;
+  border: 1px solid #ccc;
   text-align: center;
+  vertical-align: middle;
 }
+
+.form-table input[type="text"] {
+  width: 100%;
+  padding: 5px;
+  box-sizing: border-box;
+}
+
+.form-table h2 {
+  text-align: center;
+  color: #007bff;
+  margin-bottom: 10px;
+}
+
+.form-table p {
+  text-align: center;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+
 button {
   background-color: var(--primary-color);
   color: white;
-  padding: 10px 20px;
+  padding: 12px 25px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  margin-top: 20px;
-}
-
-h2 {
-  color: var(--primary-color);
-  text-align: left;
+  font-size: 1em;
+  transition: background-color 0.3s ease;
 }
 
 button:hover {
   background-color: var(--secondary-color);
 }
 
-/* Desktop Layout (for screens larger than 992px) */
+.note {
+  font-size: 0.9em;
+  color: #555555;
+  margin-top: 10px;
+}
+
+/* Responsive Layout */
+
+/* Desktop Layout (three columns) */
 @media (min-width: 992px) {
-  .flex-container {
-      flex-direction: row;
+  .form-group.half-width {
+      width: 30%;
+      margin-right: 5%;
+      flex: 1 1 30%;
   }
-  .flex-container div {
-      flex: 1 1 30%; /* 3 fields horizontally */
+
+  .form-group.full-width {
+      width: 100%;
+  }
+
+  .form-group.half-width:nth-child(3n) {
+      margin-right: 0;
   }
 }
 
-/* Tablet Layout (for screens between 768px and 992px) */
-@media (max-width: 992px) {
-  .flex-container div {
-      flex: 1 1 45%; /* 2 fields horizontally */
+/* Tablet Layout (two columns) */
+@media (min-width: 768px) and (max-width: 991px) {
+  .form-group.half-width {
+      width: 48%;
+      margin-right: 4%;
+  }
+
+  .form-group.half-width:nth-child(2n) {
+      margin-right: 0;
+  }
+
+  .form-table table {
+    font-size: 1em;
+}
+.form-table th, .form-table td {
+    padding: 12px;
+}
+  
+}
+
+/* Mobile Layout (single column) */
+@media (max-width: 767px) {
+  .form-group.half-width {
+      width: 100%;
+      margin-right: 0;
+  }
+  
+  .form-table table, .form-table thead, .form-table tbody, .form-table th, .form-table td, .form-table tr {
+    display: block;
+}
+
+/* Hide table headers */
+.form-table thead {
+    display: none;
+}
+
+/* Style each table row as a block with margin */
+.form-table tr {
+    margin-bottom: 15px;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Add labels to table cells for mobile readability */
+.form-table td {
+    text-align: left;
+    padding-left: 50%;
+    position: relative;
+}
+
+.form-table td:before {
+    position: absolute;
+    top: 0;
+    left: 10px;
+    width: 45%;
+    padding-right: 10px;
+    white-space: nowrap;
+    font-weight: bold;
+}
+
+/* Label content for each column */
+.form-table td:nth-of-type(1):before { content: "Program/Course"; }
+.form-table td:nth-of-type(2):before { content: "Basic"; }
+.form-table td:nth-of-type(3):before { content: "HRA"; }
+.form-table td:nth-of-type(4):before { content: "Gross"; }
+.form-table td:nth-of-type(5):before { content: "Take-Home"; }
+.form-table td:nth-of-type(6):before { content: "CTC"; }
+}
+
+@media (max-width: 575px) {
+  .form-table td {
+      padding-left: 40%;
+  }
+
+  .form-table td:before {
+      font-size: 0.9em;
   }
 }
 
-/* Mobile Layout (for screens smaller than 768px) */
-@media (max-width: 768px) {
-  .flex-container div {
-      flex: 1 1 100%; /* 1 field per row */
+@media (max-width: 320px) {
+  .form-table td {
+      padding-left: 30%;
+  }
+
+  .form-table td:before {
+      font-size: 0.8em;
+  }
+
+  .form-table input[type="text"] {
+      padding: 3px;
+  }
+
+  .form-table h2 {
+      font-size: 1.2em;
+  }
+
+  .form-table p {
+      font-size: 0.9em;
+  }
+}
+
+
+@media (min-width: 1200px) {
+  table {
+      font-size: 1.1em;
+  }
+
+  th, td {
+      padding: 20px;
   }
 }

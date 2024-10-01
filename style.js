@@ -1,51 +1,70 @@
-document.getElementById('industrySector').addEventListener('change', function() {
-  if (this.value === 'others') {
-      document.getElementById('industryOther').style.display = 'block';
-  } else {
-      document.getElementById('industryOther').style.display = 'none';
-  }
-});
 
-// Company Type other input field toggle
-document.getElementById('companyType').addEventListener('change', function() {
-  if (this.value === 'others') {
-      document.getElementById('companyOther').style.display = 'block';
-  } else {
-      document.getElementById('companyOther').style.display = 'none';
-  }
-});
+    // Show/Hide industry other input field
+    document.getElementById('industrySector').addEventListener('change', function () {
+      document.getElementById('industryOther').style.display = this.value === 'others' ? 'block' : 'none';
+  });
 
-// Job Designation fields toggle between input fields and file upload
-document.getElementById('designationChoice').addEventListener('change', function() {
-  if (this.value === 'pdfUpload') {
-      document.getElementById('designationFields').classList.add('show');
-      document.getElementById('designationInput').style.display = 'none';
-  } else {
-      document.getElementById('designationInput').classList.remove('show');
-      document.getElementById('designationFields').style.display = 'none';
-  }
-});
+  // Show/Hide company type other input field
+  document.getElementById('companyType').addEventListener('change', function () {
+      document.getElementById('companyOther').style.display = this.value === 'others' ? 'block' : 'none';
+  });
 
-document.getElementById('designationChoice').addEventListener('change', function() {
-  var designationFields = document.getElementById('designationFields');
-  if (this.value === 'yes_internship') {
-      designationFields.classList.remove('hidden');
-  } else {
-      designationFields.classList.add('hidden');
-  }
-});
+  // JavaScript for dynamic field display
+  document.addEventListener('DOMContentLoaded', function () {
+      const internshipTitle = document.getElementById('internshipTitle');
+      const internshipDescription = document.getElementById('internshipDescription');
+      const jobTitle = document.getElementById('jobTitle');
+      const jobDescription = document.getElementById('jobDescription');
 
-// Dynamic color picker
-document.getElementById('primaryColor').addEventListener('input', function() {
-  document.documentElement.style.setProperty('--primary-color', this.value);
-});
+      // Example functionality to toggle visibility of fields (can be customized)
+      internshipTitle.addEventListener('input', function () {
+          if (internshipTitle.value) {
+              internshipDescription.classList.remove('hidden');
+          } else {
+              internshipDescription.classList.add('hidden');
+          }
+      });
 
-document.getElementById('secondaryColor').addEventListener('input', function() {
-  document.documentElement.style.setProperty('--secondary-color', this.value);
-});
+      jobTitle.addEventListener('input', function () {
+          if (jobTitle.value) {
+              jobDescription.classList.remove('hidden');
+          } else {
+              jobDescription.classList.add('hidden');
+          }
+      });
 
-// Form submission alert
-document.getElementById('placementForm').addEventListener('submit', function(event) {
-  event.preventDefault();
-  alert('Form Submitted Successfully!');
-});
+      document.getElementById('designationChoice').addEventListener('change', function () {
+        const designationFields = document.getElementById('designationFields');
+        const designationInputGroup = document.getElementById('designationInputGroup');
+        const jobDescriptionGroup = document.getElementById('jobDescriptionGroup');
+        const placePostingGroup = document.getElementById('placePostingGroup');
+        const pdfUploadGroup = document.getElementById('pdfUploadGroup');
+    
+        // If "manual" is selected, show manual input fields
+        if (this.value === 'manual') {
+            designationFields.style.display = 'block';
+            designationInputGroup.style.display = 'block';
+            jobDescriptionGroup.style.display = 'block';
+            placePostingGroup.style.display = 'block';
+            pdfUploadGroup.style.display = 'none';
+        } 
+        // If "pdfUpload" is selected, show PDF upload field
+        else if (this.value === 'pdfUpload') {
+            designationFields.style.display = 'none';
+            pdfUploadGroup.style.display = 'block';
+        } 
+        // Hide all fields if no selection is made
+        else {
+            designationFields.style.display = 'none';
+            pdfUploadGroup.style.display = 'none';
+        }
+    });
+    
+    
+
+      // Form submission handling
+      document.querySelector('form').addEventListener('submit', function (event) {
+          event.preventDefault(); // Prevent actual form submission for demo
+          alert('Form submitted successfully!');
+      });
+  });
