@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Training and Placement Center Form</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <h2>Training and Placement Form</h2>
+
+  <form id="placementForm">
+      <h2>Company Details</h2>
+      <div class="form-group">
+      <label for="companyName">Name of the Company:</label>
+      <input type="text" id="companyName" name="companyName" placeholder="Company Name" required></div>
+      <div class="form-group">
+      <label for="website">Website:</label>
+        <input type="url" id="website" name="website" placeholder="URL" required></div>
+      <!-- Industry Sector -->
+      <div class="form-group">
+          <label for="industrySector">Industry Sector</label>
+          <select id="industrySector" name="industrySector" >
+              <option value="core">Core (Technical)</option>
+              <option value="consulting">Consulting</option>
+              <option value="management">Management</option>
+              <option value="finance">Finance</option>
+              <option value="PSU">PSU</option>
+              <option value="FMCG">FMCG</option>
+              <option value="it">IT</option>
+              <option value="Analytics">Analytics</option>
+              <option value="Teaching & research">Teaching & research</option>
+              <option value="others">Others</option>
+          </select>
+          <input type="text" id="industryOther" class="form-group" style="display:none;" placeholder="Please specify other industry">
+      </div>
+  
+      <!-- Company Type -->
+      <div class="form-group">
+          <label for="companyType">Company Type</label>
+          <select id="companyType" name="companyType">
+              <option value="private">Private Sector</option>
+              <option value="startup">Startup</option>
+              <option value="government">Government</option>
+              <option value="Public">Public sector</option>
+              <option value="MNC">MNC(India Origin)</option>
+              <option value="MNC1">MNC(Foreign origin)</option>
+              <option value="others">Others</option>
+          </select>
+          <input type="text" id="companyOther" class="form-group" style="display:none;" placeholder="Please specify other company type">
+      </div>
+  
+      <div class="form-group">
+      <label for="companyWriteup">Brief write-up on the Company (50-75 words):</label>
+      <textarea id="companyWriteup" name="companyWriteup"></textarea><br><br>
+  
+      <label for="employeeStrength">Employee Strength:</label>
+      <input type="number" id="employeeStrength" name="employeeStrength"><br><br>
+  
+      <label for="recruitmentDriveDate">Date of Recruitment Drive:</label>
+      <input type="date" id="recruitmentDriveDate" name="recruitmentDriveDate"><br><br>
+  
+      <label for="timeOfVisit">Time of Visit:</label>
+      <input type="time" id="timeOfVisit" name="timeOfVisit"><br><br>
+  
+      <label for="passingOutBatch">Passing Out Batch:</label>
+      <input type="text" id="passingOutBatch" name="passingOutBatch"><br><br>
+  
+      <h2>Contact Details</h2>
+      <label for="contactPerson">Contact Person:</label>
+      <input type="text" id="contactPerson" name="contactPerson"><br><br>
+  
+      <label for="designation">Designation:</label>
+      <input type="text" id="designation" name="designation"><br><br>
+  
+      <label for="address">Address:</label>
+      <textarea id="address" name="address"></textarea><br><br>
+  
+      <label for="telephone">Telephone:</label>
+      <input type="tel" id="telephone" name="telephone"><br><br>
+  
+      <label for="mobile">Mobile:</label>
+      <input type="tel" id="mobile" name="mobile"><br><br>
+  
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email"></div><br><br>
+  
+      <!-- Job Designation Offered -->
+      <h2>Job Details</h2>
+      <div class="form-group">
+          <label for="jobDesignation">Job Designation Offered</label>
+          <select id="designationChoice" name="designationChoice">
+              <option value="manual">Enter Details</option>
+              <option value="pdfUpload">Upload PDF</option>
+          </select>
+          <div id="designationFields" class="file-upload">
+              <input type="file" id="designationPdf" accept="application/pdf">
+          </div>
+          <div id="designationInput" class="form-group">
+              <label>Probable No. of Offers to be Made:</label>
+              <input type="number" id="numOffers" placeholder="Number of Offers">
+              <label>Job Description:</label>
+              <textarea id="jobDescription" rows="3" placeholder="Job Description"></textarea>
+              <label>Place of Posting:</label>
+              <input type="text" id="placePosting" placeholder="Place of Posting">
+                    
+          <div class="checkbox-group">
+                  <label for="bond">Details of Bond/Service Contract, if any</label>
+                  <input type="radio" id="Yes" name="database" value="Yes">
+                  <label for="Yes">Yes</label>
+                  <input type="radio" id="No" name="database" value="No">
+                  <label for="No">No</label>
+              </div>
+              <br><br>
+          <div class="form-group">
+                  <label for="contractLength">If Yes, how long?</label>
+                  <input type="text" id="contractLength" name="contractLength">
+              </div>
+          
+  
+          <div class="form-group">
+              <div>
+                  <label for="compensation">If candidate breaches the contract, the compensation he/she will have to pay</label>
+                  <input type="text" id="compensation" name="compensation">
+              </div>
+          </div>
+  
+          <div class="form-group">
+              <div>
+                  <label for="medical">Medical Requirements</label>
+                  <input type="text" id="medical" name="medical">
+              </div>
+          </div>
+  
+          <label>Are you hiring for Diversity or Regular hiring?</label>
+              <div class="checkbox-group">
+                  <label for="gender">Gende:</label>
+                  <input type="radio" id="male" name="gender">
+                  <label for="male">Only Male</label>
+                  <input type="radio" id="female" name="gender">
+                  <label for="female">Only Female</label>
+                  <input type="radio" id="both" name="gender">
+                  <label for="both">Both</label>
+              </div></div></div>
+      </div><br><br>
+  
+      <!-- Salary Details -->
+      <div class="form-group">
+          <label><h2>Salary Details</h2> (in lakhs per annum)</label>
+          <table>
+              <thead>
+                  <tr>
+                      <th>Program/Course</th>
+                      <th>Basic</th>
+                      <th>HRA</th>
+                      <th>Gross</th>
+                      <th>Take-Home</th>
+                      <th>CTC</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr>
+                      <td>MBA</td>
+                      <td><input type="text" name="mbaBasic"></td>
+                      <td><input type="text" name="mbaHRA"></td>
+                      <td><input type="text" name="mbaGross"></td>
+                      <td><input type="text" name="mbaTakeHome"></td>
+                      <td><input type="text" name="mbaCTC"></td>
+                  </tr>
+                  <tr>
+                      <td>B.Com</td>
+                      <td><input type="text" name="bcomBasic"></td>
+                      <td><input type="text" name="bcomHRA"></td>
+                      <td><input type="text" name="bcomGross"></td>
+                      <td><input type="text" name="bcomTakeHome"></td>
+                      <td><input type="text" name="bcomCTC"></td>
+                  </tr>
+                  <tr>
+                      <td>B.Com</td>
+                      <td><input type="text" name="bcomBasic"></td>
+                      <td><input type="text" name="bcomHRA"></td>
+                      <td><input type="text" name="bcomGross"></td>
+                      <td><input type="text" name="bcomTakeHome"></td>
+                      <td><input type="text" name="bcomCTC"></td>
+                  </tr>
+                  <tr>
+                      <td>BBA</td>
+                      <td><input type="text" name="bcomBasic"></td>
+                      <td><input type="text" name="bcomHRA"></td>
+                      <td><input type="text" name="bcomGross"></td>
+                      <td><input type="text" name="bcomTakeHome"></td>
+                      <td><input type="text" name="bcomCTC"></td>
+                  </tr>
+                  <tr>
+                      <td>BCA</td>
+                      <td><input type="text" name="bcomBasic"></td>
+                      <td><input type="text" name="bcomHRA"></td>
+                      <td><input type="text" name="bcomGross"></td>
+                      <td><input type="text" name="bcomTakeHome"></td>
+                      <td><input type="text" name="bcomCTC"></td>
+                  </tr>
+                  <tr>
+                      <td>BSc</td>
+                      <td><input type="text" name="bcomBasic"></td>
+                      <td><input type="text" name="bcomHRA"></td>
+                      <td><input type="text" name="bcomGross"></td>
+                      <td><input type="text" name="bcomTakeHome"></td>
+                      <td><input type="text" name="bcomCTC"></td>
+                  </tr>
+                  <tr>
+                      <td>BA</td>
+                      <td><input type="text" name="bcomBasic"></td>
+                      <td><input type="text" name="bcomHRA"></td>
+                      <td><input type="text" name="bcomGross"></td>
+                      <td><input type="text" name="bcomTakeHome"></td>
+                      <td><input type="text" name="bcomCTC"></td>
+                  </tr>
+                  <tr>
+                      <td>B.Com TTM</td>
+                      <td><input type="text" name="bcomBasic"></td>
+                      <td><input type="text" name="bcomHRA"></td>
+                      <td><input type="text" name="bcomGross"></td>
+                      <td><input type="text" name="bcomTakeHome"></td>
+                      <td><input type="text" name="bcomCTC"></td>
+                  </tr>
+                  <tr>
+                      <td>MSW</td>
+                      <td><input type="text" name="bcomBasic"></td>
+                      <td><input type="text" name="bcomHRA"></td>
+                      <td><input type="text" name="bcomGross"></td>
+                      <td><input type="text" name="bcomTakeHome"></td>
+                      <td><input type="text" name="bcomCTC"></td>
+                  </tr>
+                  <tr>
+                      <td>MSc Psychology </td>
+                      <td><input type="text" name="bcomBasic"></td>
+                      <td><input type="text" name="bcomHRA"></td>
+                      <td><input type="text" name="bcomGross"></td>
+                      <td><input type="text" name="bcomTakeHome"></td>
+                      <td><input type="text" name="bcomCTC"></td>
+                  </tr>
+              </tbody>
+          </table>
+      </div>
+  
+   <!-- Eligibility for participating in the selection process: -->
+      <h2>Eligibility for participating in the selection process:</h2><br>
+      <div class="form-group">
+          <label for="text">Specify the CGPA criteria: </label>
+          <h6>(Pls specify CGPA out of 10)</h6>
+          <input type="text" id="CGPA" name="CGPA">
+      </div>
+      <div class="checkbox-group">
+          <label for="backlogs">Do you consider students with current active backlogs/failures?</label>
+          <input type="radio" id="Yes" name="database" value="Yes">
+          <label for="Yes">Yes</label>
+          <input type="radio" id="No" name="database" value="No">
+          <label for="No">No</label>
+      </div></div><br>
+  
+      <!-- Selection Process -->
+      <h2>Selection Process</h2><br><br>
+          <div class="checkbox-group">
+                  <label for="online">Database to be sent</label>
+                  <input type="radio" id="online" name="database" value="online">
+                  <label for="online">Online/Virtual</label>
+                  <input type="radio" id="campus" name="database" value="campus">
+                  <label for="campus">On Campus</label>
+          </div>
+      
+          <div class="form-group">
+              <label for="email">If online, the email ID to which the database should be sent</label>
+              <input type="email" id="email" name="email">
+          </div>
+  
+          <table>
+              <tr>
+                  <th>Test Type</th>
+                  <th>Yes</th>
+                  <th>No</th>
+              </tr>
+              <tr>
+                  <td>Online Test</td>
+                  <td><input type="radio" id="onlineTestYes" name="onlineTest"></td>
+                  <td><input type="radio" id="onlineTestNo" name="onlineTest"></td>
+              </tr>
+              <tr>
+                  <td>Aptitude Test</td>
+                  <td><input type="radio" id="aptitudeTestYes" name="aptitudeTest"></td>
+                  <td><input type="radio" id="aptitudeTestNo" name="aptitudeTest"></td>
+              </tr>
+              <tr>
+                  <td>Technical Test</td>
+                  <td><input type="radio" id="technicalTestYes" name="technicalTest"></td>
+                  <td><input type="radio" id="technicalTestNo" name="technicalTest"></td>
+              </tr>
+              <tr>
+                  <td>Group Discussion</td>
+                  <td><input type="radio" id="groupDiscussionYes" name="groupDiscussion"></td>
+                  <td><input type="radio" id="groupDiscussionNo" name="groupDiscussion"></td>
+              </tr>
+              <tr>
+                  <td>Technical Interview</td>
+                  <td><input type="radio" id="technicalInterviewYes" name="technicalInterview"></td>
+                  <td><input type="radio" id="technicalInterviewNo" name="technicalInterview"></td>
+              </tr>
+              <tr>
+                  <td>HR Interview</td>
+                  <td><input type="radio" id="hrInterviewYes" name="hrInterview"></td>
+                  <td><input type="radio" id="hrInterviewNo" name="hrInterview"></td>
+              </tr>
+              <tr>
+                  <td>Personal Interview</td>
+                  <td><input type="radio" id="personalInterviewYes" name="personalInterview"></td>
+                  <td><input type="radio" id="personalInterviewNo" name="personalInterview"></td>
+              </tr>
+          </table><br><br>
+  
+          <div class="form-group">
+              <label for="skillset">If yes, specify topics/skill sets that you would like to test for</label>
+              <input type="text" id="skillset" name="skillset">
+          </div>
+  
+          <div class="form-group">
+              <label for="rounds">Total no. of rounds</label>
+              <input type="number" id="rounds" name="rounds">
+          </div>
+  
+  
+          <div class="form-group">
+              <label for="jobDesignation">Is Internship Required?</label>
+              <select id="designationChoice" name="designationChoice" onchange="toggleInternshipDetails()">
+                  <option value="no">No</option>
+                  <option value="yes">Yes</option>
+              </select>
+          </div>
+      
+          <div class="form-group">
+            <label for="designationChoice">Is Internship Required?</label>
+            <select id="designationChoice">
+                <option value="no">No</option>
+                <option value="yes_internship">Yes</option>
+            </select>
+        </div>
+      
+        <div class="form-group hidden" id="designationFields">
+          <div class="form-group">
+            <label for="mandatory">Is it mandatory to take up internship?</label>
+            <div class="flex-group">
+                <input type="radio" id="mandatory_yes" name="mandatory" value="yes">
+                <label for="mandatory_yes">Yes</label>
+                <input type="radio" id="mandatory_no" name="mandatory" value="no">
+                <label for="mandatory_no">No</label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="stipend">Stipend paid per month during internship:</label>
+            <input type="text" id="stipend" name="stipend" placeholder="Enter amount">
+        </div>
+
+        <div class="form-group">
+            <label for="days">Number of days in a week:</label>
+            <input type="text" id="days" name="days" placeholder="Enter number of days">
+        </div>
+
+        <div class="form-group">
+            <label for="duration">Total duration:</label>
+            <input type="text" id="duration" name="duration" placeholder="Enter duration">
+            <span>months</span>
+        </div>
+
+        <div class="form-group">
+            <label for="from">From:</label>
+            <input type="date" id="from" name="from">
+            <label for="to">To:</label>
+            <input type="date" id="to" name="to">
+        </div>
+
+        <div class="form-group note">
+            <p>Note: During the internship period, candidates may have to attend college for project review meetings, presentations, etc., based on instructions from their guide (college).</p>
+        </div>
+    </div>
+      </div>   
+              
+          
+  
+      <button type="submit">Submit Form</button>
+  </form>
+  </div>
+  <script src="style.js"></script>
+</body>
+</html>
